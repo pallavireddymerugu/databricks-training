@@ -84,3 +84,33 @@ HAVING AVG(salary) = (
         GROUP BY department_id
     ) AS dept_avg
 );
+--Q26
+--departments with more than 2 employees
+select department_id from Employee group by department_id having count(*)>2;
+--Q27
+--departments with an average greater than 55000
+select department_id from Employee group by department_id having avg(salary)>55000;
+--Q28
+--years with more than 1 employyee hired
+select year(hire_date) from Employee group by year(hire_date) having count(*)>1;
+--Q29
+--departments with a total salary less than 100000
+select department_id from Employee group by department_id having sum(salary)<100000;
+--Q30
+--departments with max salary above 75000
+select department_id from Employee group by department_id having max(salary)>75000;
+--Q31
+--employees ordered by their salary in ascending order
+select*from Employee order by salary;
+--Q32
+--employees ordered by their age in descending order
+select*from Employee order by age desc;
+--Q33
+--employees ordered by their hiredate in ascending order
+select*from Employee order by hire_date;
+--Q34
+--employees ordered by their department and then salary
+select*from Employee order by department_id,salary;
+--Q35
+--departments ordered by the total salary of their employees
+select department_id,sum(salary) from Employee group by department_id order by sum(salary);

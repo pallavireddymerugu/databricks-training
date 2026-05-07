@@ -114,3 +114,18 @@ select*from Employee order by department_id,salary;
 --Q35
 --departments ordered by the total salary of their employees
 select department_id,sum(salary) from Employee group by department_id order by sum(salary);
+--Q36
+--employee names along with their department names
+select Employee.name,Department.name from Employee join Department on Employee.department_id=Department.department_id;
+--Q37
+--project name salong with department names
+select Project.name,Department.name from Project join Department on Project.department_id=Department.department_id;
+--Q38
+--employee names and their projects
+select Employee.name,Project.name from Employee join Project on Project.department_id=Employee.department_id;
+--Q39
+--all employees
+select Employee.name,Department.name from Employee Left join Department on Department.department_id=Employee.department_id;
+--Q40
+--Departments and their employees including depatments without employees 
+select Department.name,Employee.name from Department Left join Employee on Department.department_id=Employee.department_id;

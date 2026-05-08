@@ -129,3 +129,6 @@ select Employee.name,Department.name from Employee Left join Department on Depar
 --Q40
 --Departments and their employees including depatments without employees 
 select Department.name,Employee.name from Department Left join Employee on Department.department_id=Employee.department_id;
+--Q41
+SELECT name FROM Employee WHERE emp_id NOT IN (SELECT emp_id FROM Project);
+--Q42
